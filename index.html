@@ -578,40 +578,108 @@
 
     .price-guide {
       display: grid;
-      align-items: stretch;
+      align-items: start;
       margin-top: clamp(34px, 5vw, 56px);
-      border: 1px solid rgba(77, 67, 59, 0.12);
-      border-radius: var(--radius);
-      background: rgba(255, 253, 249, 0.72);
-      box-shadow: 0 16px 38px rgba(77, 67, 59, 0.08);
-      gap: 0;
-      grid-template-columns: 0.9fr 1.1fr;
-      overflow: hidden;
+      gap: 20px;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
     }
 
     .price-intro {
       padding: clamp(28px, 4vw, 44px);
-      background: linear-gradient(135deg, rgba(255, 253, 249, 0.95), rgba(232, 216, 196, 0.45));
+      border: 1px solid rgba(119, 128, 109, 0.2);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(255, 253, 249, 0.96), rgba(239, 245, 235, 0.64)),
+        var(--warm-white);
+      box-shadow: 0 16px 34px rgba(77, 67, 59, 0.08);
+      position: sticky;
+      top: 98px;
     }
 
     .price-intro p {
       margin-top: 14px;
     }
 
+    .menu-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      margin-top: 22px;
+      padding: 8px 13px;
+      border: 1px solid rgba(199, 163, 92, 0.32);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, 0.74);
+      color: var(--deep-taupe);
+      font-size: 0.88rem;
+      font-weight: 600;
+      gap: 8px;
+    }
+
+    .menu-chip i {
+      color: var(--gold);
+    }
+
+    .price-intro .btn {
+      margin-top: 24px;
+      width: 100%;
+    }
+
     .price-list {
       display: grid;
-      padding: clamp(24px, 4vw, 42px);
-      gap: 12px;
+      align-items: start;
+      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .menu-group {
+      display: grid;
+      padding: 22px;
+      border: 1px solid rgba(77, 67, 59, 0.1);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 249, 0.86);
+      box-shadow: 0 14px 30px rgba(77, 67, 59, 0.06);
+      gap: 6px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .menu-group:hover {
+      border-color: rgba(199, 163, 92, 0.34);
+      box-shadow: 0 18px 36px rgba(77, 67, 59, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .menu-group h4 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(77, 67, 59, 0.1);
+      color: var(--deep-taupe);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.5rem;
+      gap: 10px;
+      line-height: 1.08;
+    }
+
+    .menu-group h4 i {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #eef3e8;
+      color: var(--sage);
+      font-size: 0.9rem;
+      place-items: center;
     }
 
     .price-row {
-      display: flex;
+      display: grid;
       align-items: center;
-      justify-content: space-between;
-      min-height: 48px;
-      padding: 11px 0;
-      border-bottom: 1px solid rgba(77, 67, 59, 0.12);
-      gap: 18px;
+      min-height: 42px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(77, 67, 59, 0.09);
+      gap: 14px;
+      grid-template-columns: minmax(0, 1fr) auto;
     }
 
     .price-row:last-child {
@@ -619,13 +687,41 @@
     }
 
     .price-row span {
-      color: rgba(38, 35, 32, 0.7);
+      color: rgba(38, 35, 32, 0.74);
+      line-height: 1.35;
+      min-width: 0;
     }
 
     .price-row strong {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      min-height: 30px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(199, 163, 92, 0.14);
       color: var(--deep-taupe);
+      font-size: 0.92rem;
       font-weight: 600;
+      line-height: 1;
       white-space: nowrap;
+    }
+
+    .price-row:hover span {
+      color: var(--deep-taupe);
+    }
+
+    .price-row:hover strong {
+      background: var(--deep-taupe);
+      color: #fff;
+    }
+
+    .menu-note {
+      margin-top: 18px;
+      color: rgba(38, 35, 32, 0.68);
+      font-size: 0.94rem;
+      line-height: 1.55;
     }
 
     .gallery {
@@ -1168,38 +1264,6 @@
       margin-top: 4px;
     }
 
-    .toast {
-      display: flex;
-      align-items: center;
-      max-width: min(420px, calc(100% - 32px));
-      min-height: 58px;
-      padding: 15px 18px;
-      border: 1px solid rgba(199, 163, 92, 0.36);
-      border-radius: var(--radius);
-      background: rgba(255, 253, 249, 0.96);
-      box-shadow: 0 18px 44px rgba(38, 35, 32, 0.18);
-      color: var(--deep-taupe);
-      font-weight: 600;
-      gap: 12px;
-      opacity: 0;
-      pointer-events: none;
-      position: fixed;
-      right: 18px;
-      top: 96px;
-      transform: translateY(-14px);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      z-index: 1200;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .toast i {
-      color: var(--gold);
-    }
-
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -1340,6 +1404,10 @@
         grid-template-columns: 1fr;
       }
 
+      .price-intro {
+        position: static;
+      }
+
       .about-media {
         grid-template-columns: 1fr;
       }
@@ -1475,17 +1543,19 @@
         text-align: left;
       }
 
-      .price-row {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 2px;
+      .price-list {
+        grid-template-columns: 1fr;
       }
 
-      .toast {
-        left: 14px;
-        right: 14px;
-        top: 84px;
+      .menu-group {
+        padding: 20px;
       }
+
+      .price-row {
+        align-items: start;
+        gap: 10px;
+      }
+
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1515,6 +1585,8 @@
       "name": "The Nail Lounge",
       "description": "Modern nail salon in Chipping Barnet offering professional nail care, premium products and relaxing treatments.",
       "image": "avatar.jpg",
+      "telephone": "+44 7927 809419",
+      "url": "https://linhg60n.setmore.com/",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "35A High Street",
@@ -1544,7 +1616,7 @@
         <ul class="nav-menu" id="navMenu">
           <li><a class="nav-link active" href="#home">Home</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#services">Services</a></li>
+          <li><a class="nav-link" href="#services">Menu</a></li>
           <li><a class="nav-link" href="#gallery">Gallery</a></li>
           <li><a class="nav-link" href="#hours">Hours</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
@@ -1552,8 +1624,8 @@
       </nav>
 
       <div class="nav-actions">
-        <span class="phone-pill"><i class="fa-solid fa-phone"></i> Coming Soon</span>
-        <button class="btn" type="button" data-booking><i class="fa-regular fa-calendar-check"></i> Book</button>
+        <a class="phone-pill" href="tel:+447927809419"><i class="fa-solid fa-phone"></i> +44 7927 809419</a>
+        <a class="btn" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book</a>
         <button class="hamburger" type="button" id="menuToggle" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -1568,8 +1640,8 @@
         <h1>The Nail Lounge</h1>
         <p class="hero-subtitle">Where Beauty Meets Elegance</p>
         <div class="hero-actions">
-          <button class="btn" type="button" data-booking><i class="fa-regular fa-calendar-check"></i> Book Appointment</button>
-          <a class="btn secondary" href="#services"><i class="fa-solid fa-spa"></i> View Services</a>
+          <a class="btn" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
+          <a class="btn secondary" href="#services"><i class="fa-solid fa-spa"></i> View Menu</a>
         </div>
         <div class="hero-meta" aria-label="Salon key information">
           <span><i class="fa-solid fa-location-dot"></i> 35A High Street, Chipping Barnet</span>
@@ -1609,7 +1681,7 @@
     <section class="services" id="services">
       <div class="container">
         <div class="section-heading center reveal">
-          <span class="eyebrow">Services</span>
+          <span class="eyebrow">Service Menu</span>
           <h2>Everything your nails need.</h2>
         </div>
 
@@ -1658,17 +1730,93 @@
 
         <div class="price-guide reveal" aria-label="Signature price guide">
           <div class="price-intro">
-            <span class="eyebrow">Price Guide</span>
-            <h3>Signature treatments</h3>
-            <p>A concise guide from the salon menu. Final selections can be confirmed during your visit.</p>
+            <span class="eyebrow">Booking Menu</span>
+            <h3>Prices from our online booking menu</h3>
+            <p>Prices shown include an automatic &pound;2 service addition. Final selections can be confirmed during your visit.</p>
+            <span class="menu-chip"><i class="fa-solid fa-circle-plus"></i> &pound;2 added automatically</span>
+            <p class="menu-note">Tap Book Appointment to choose your exact treatment, time and technician through Setmore.</p>
+            <a class="btn" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Menu</a>
           </div>
           <div class="price-list">
-            <div class="price-row"><span>Classic Manicure</span><strong>from &pound;20</strong></div>
-            <div class="price-row"><span>Luxury Manicure</span><strong>from &pound;30</strong></div>
-            <div class="price-row"><span>Classic Pedicure</span><strong>from &pound;33</strong></div>
-            <div class="price-row"><span>Luxury Pedicure</span><strong>from &pound;43</strong></div>
-            <div class="price-row"><span>BIAB Full Set</span><strong>from &pound;40</strong></div>
-            <div class="price-row"><span>Nail Art / French Tip</span><strong>from &pound;5</strong></div>
+            <div class="menu-group">
+              <h4><i class="fa-solid fa-hand-sparkles"></i> Manicure</h4>
+              <div class="price-row"><span>Manicure Gel Polish</span><strong data-base-price="30"></strong></div>
+              <div class="price-row"><span>Luxury Manicure Normal Polish</span><strong data-base-price="30"></strong></div>
+              <div class="price-row"><span>Luxury Manicure Gel Polish</span><strong data-base-price="40"></strong></div>
+              <div class="price-row"><span>Manicure Normal Polish</span><strong data-base-price="20"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish + Manicure Normal Polish</span><strong data-base-price="25"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish + Manicure Gel Polish</span><strong data-base-price="35"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish + Luxury Manicure Normal Polish</span><strong data-base-price="35"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish + Luxury Manicure Gel Polish</span><strong data-base-price="45"></strong></div>
+            </div>
+
+            <div class="menu-group">
+              <h4><i class="fa-solid fa-spa"></i> Pedicure</h4>
+              <div class="price-row"><span>Pedicure Normal Polish</span><strong data-base-price="33"></strong></div>
+              <div class="price-row"><span>Pedicure Gel Polish</span><strong data-base-price="38"></strong></div>
+              <div class="price-row"><span>Luxury Pedicure Normal Polish</span><strong data-base-price="43"></strong></div>
+              <div class="price-row"><span>Luxury Pedicure Gel Polish</span><strong data-base-price="48"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish + Pedicure Normal Polish</span><strong data-base-price="38"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish + Pedicure Gel Polish</span><strong data-base-price="43"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish + Luxury Pedicure Normal Polish</span><strong data-base-price="48"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish + Luxury Pedicure Gel Polish</span><strong data-base-price="53"></strong></div>
+            </div>
+
+            <div class="menu-group">
+              <h4><i class="fa-solid fa-seedling"></i> BIAB / Builder Gel</h4>
+              <div class="price-row"><span>Full Set On Natural Nail</span><strong data-base-price="40"></strong></div>
+              <div class="price-row"><span>Full Set On Extensions</span><strong data-base-price="45"></strong></div>
+              <div class="price-row"><span>Infill</span><strong data-base-price="35"></strong></div>
+              <div class="price-row"><span>Take Off Redone On Natural Nail</span><strong data-base-price="45"></strong></div>
+              <div class="price-row"><span>Take Off Redone On Extensions</span><strong data-base-price="50"></strong></div>
+            </div>
+
+            <div class="menu-group">
+              <h4><i class="fa-solid fa-palette"></i> Acrylic / Powder Colour</h4>
+              <div class="price-row"><span>Acrylic Full Set With Normal Polish</span><strong data-base-price="27"></strong></div>
+              <div class="price-row"><span>Acrylic Full Set With Gel Polish</span><strong data-base-price="37"></strong></div>
+              <div class="price-row"><span>Acrylic Infill Normal Polish</span><strong data-base-price="22"></strong></div>
+              <div class="price-row"><span>Acrylic Infill Gel Polish</span><strong data-base-price="32"></strong></div>
+              <div class="price-row"><span>Full Set Gel Powder With Normal Polish</span><strong data-base-price="29"></strong></div>
+              <div class="price-row"><span>Full Set Gel Powder With Gel Polish</span><strong data-base-price="39"></strong></div>
+              <div class="price-row"><span>Infill Gel Powder With Normal Polish</span><strong data-base-price="25"></strong></div>
+              <div class="price-row"><span>Infill Gel Powder With Gel Polish</span><strong data-base-price="35"></strong></div>
+              <div class="price-row"><span>Colour Powder Full Set</span><strong data-base-price="40"></strong></div>
+              <div class="price-row"><span>Infill Colour Powder</span><strong data-base-price="35"></strong></div>
+              <div class="price-row"><span>Full Set Ombre Powder / Pink &amp; White</span><strong data-base-price="43"></strong></div>
+              <div class="price-row"><span>Infill Ombre Powder / Pink &amp; White</span><strong data-base-price="38"></strong></div>
+            </div>
+
+            <div class="menu-group">
+              <h4><i class="fa-solid fa-shoe-prints"></i> Feet</h4>
+              <div class="price-row"><span>Full Set Toes With Normal Polish</span><strong data-base-price="38"></strong></div>
+              <div class="price-row"><span>Full Set Toes With Gel Polish</span><strong data-base-price="43"></strong></div>
+              <div class="price-row"><span>Infill Toes With Normal Polish</span><strong data-base-price="32"></strong></div>
+              <div class="price-row"><span>Infill Toes With Gel Polish</span><strong data-base-price="38"></strong></div>
+              <div class="price-row"><span>Normal Polish</span><strong data-base-price="20"></strong></div>
+              <div class="price-row"><span>Gel Polish</span><strong data-base-price="25"></strong></div>
+              <div class="price-row"><span>Take Off Redone Gel Polish</span><strong data-base-price="30"></strong></div>
+              <div class="price-row"><span>Take Off With Normal Polish</span><strong data-base-price="25"></strong></div>
+              <div class="price-row"><span>Pedicure Without Colour</span><strong data-base-price="30"></strong></div>
+            </div>
+
+            <div class="menu-group">
+              <h4><i class="fa-solid fa-hand"></i> Hand</h4>
+              <div class="price-row"><span>Normal Polish</span><strong data-base-price="15"></strong></div>
+              <div class="price-row"><span>Gel Polish</span><strong data-base-price="20"></strong></div>
+              <div class="price-row"><span>Manicure Without Colour</span><strong data-base-price="18"></strong></div>
+              <div class="price-row"><span>Take Off Redone Gel Polish</span><strong data-base-price="25"></strong></div>
+              <div class="price-row"><span>Take Off With Normal Polish</span><strong data-base-price="20"></strong></div>
+            </div>
+
+            <div class="menu-group">
+              <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Add On</h4>
+              <div class="price-row"><span>French / Tip</span><strong data-base-price="5" data-price-prefix="from "></strong></div>
+              <div class="price-row"><span>Chrome / Cat Eye</span><strong data-base-price="8"></strong></div>
+              <div class="price-row"><span>Nail Repair</span><strong data-base-price="4"></strong></div>
+              <div class="price-row"><span>Nail Design</span><strong data-base-price="5" data-price-prefix="from "></strong></div>
+              <div class="price-row"><span>Extra Length</span><strong data-base-price="5" data-price-prefix="from "></strong></div>
+            </div>
           </div>
         </div>
       </div>
@@ -1763,7 +1911,7 @@
         <div class="section-heading reveal">
           <span class="eyebrow">Opening Hours</span>
           <h2>Visit us on Chipping Barnet High Street.</h2>
-          <p>Appointments are available Monday to Saturday. Online booking will be added soon.</p>
+          <p>Appointments are available Monday to Saturday. Online booking is now available through Setmore.</p>
         </div>
 
         <div class="hours-card reveal">
@@ -1784,7 +1932,7 @@
         <span class="eyebrow">Appointments</span>
         <h2>Ready for your next set?</h2>
         <p>Book your manicure, pedicure, BIAB, acrylic extensions or luxury treatment with The Nail Lounge.</p>
-        <button class="btn" type="button" data-booking><i class="fa-regular fa-calendar-check"></i> Book Appointment</button>
+        <a class="btn" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
       </div>
     </section>
 
@@ -1810,7 +1958,7 @@
                 <i class="fa-solid fa-phone"></i>
                 <div>
                   <strong>Phone</strong>
-                  <p>Coming Soon</p>
+                  <p><a href="tel:+447927809419">+44 7927 809419</a></p>
                 </div>
               </li>
               <li>
@@ -1826,7 +1974,7 @@
               <a class="btn" href="https://www.google.com/maps/search/?api=1&query=35A%20High%20Street%2C%20Chipping%20Barnet%2C%20EN5%205UW%2C%20United%20Kingdom" target="_blank" rel="noopener">
                 <i class="fa-solid fa-location-arrow"></i> Get Directions
               </a>
-              <button class="btn ghost" type="button" data-call><i class="fa-solid fa-phone"></i> Call Us</button>
+              <a class="btn ghost" href="tel:+447927809419"><i class="fa-solid fa-phone"></i> Call Us</a>
             </div>
 
             <div class="socials" aria-label="Social media links">
@@ -1894,11 +2042,6 @@
     </div>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite">
-    <i class="fa-solid fa-circle-info"></i>
-    <span id="toastText">Online booking will be available soon.</span>
-  </div>
-
   <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true" inert>
     <button class="gallery-lightbox-close" id="galleryLightboxClose" type="button" aria-label="Close gallery image">
       <i class="fa-solid fa-xmark"></i>
@@ -1914,14 +2057,12 @@
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
     const navLinks = document.querySelectorAll(".nav-link");
-    const toast = document.getElementById("toast");
-    const toastText = document.getElementById("toastText");
     const galleryLinks = document.querySelectorAll("[data-gallery]");
     const galleryLightbox = document.getElementById("galleryLightbox");
     const galleryLightboxImage = document.getElementById("galleryLightboxImage");
     const galleryLightboxCaption = document.getElementById("galleryLightboxCaption");
     const galleryLightboxClose = document.getElementById("galleryLightboxClose");
-    let toastTimer;
+    const servicePriceAddition = 2;
     let lastGalleryTrigger = null;
 
     const setHeaderState = () => {
@@ -1934,11 +2075,19 @@
       menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
     };
 
-    const showToast = (message) => {
-      toastText.textContent = message;
-      toast.classList.add("show");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toast.classList.remove("show"), 3600);
+    const formatServicePrice = (price) => {
+      return `£${price.toLocaleString("en-GB")}`;
+    };
+
+    const renderServicePrices = () => {
+      document.querySelectorAll("[data-base-price]").forEach((element) => {
+        const basePrice = Number(element.dataset.basePrice);
+        if (!Number.isFinite(basePrice)) return;
+
+        const prefix = element.dataset.pricePrefix || "";
+        const suffix = element.dataset.priceSuffix || "";
+        element.textContent = `${prefix}${formatServicePrice(basePrice + servicePriceAddition)}${suffix}`;
+      });
     };
 
     const openGalleryLightbox = (link) => {
@@ -1984,18 +2133,6 @@
       if (event.target.closest("a")) {
         closeMenu();
       }
-    });
-
-    document.querySelectorAll("[data-booking]").forEach((button) => {
-      button.addEventListener("click", () => {
-        showToast("Online booking will be available soon.");
-      });
-    });
-
-    document.querySelectorAll("[data-call]").forEach((button) => {
-      button.addEventListener("click", () => {
-        showToast("Phone number will be available soon.");
-      });
     });
 
     galleryLinks.forEach((link) => {
@@ -2052,11 +2189,11 @@
       if (event.key === "Escape") {
         closeGalleryLightbox();
         closeMenu();
-        toast.classList.remove("show");
       }
     });
 
     setHeaderState();
+    renderServicePrices();
   </script>
 </body>
 </html>
