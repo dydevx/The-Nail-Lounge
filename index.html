@@ -631,6 +631,10 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .price-list.is-masonry {
+      grid-auto-rows: 8px;
+    }
+
     .menu-group {
       display: grid;
       padding: 22px;
@@ -2060,6 +2064,7 @@
     const galleryLightboxImage = document.getElementById("galleryLightboxImage");
     const galleryLightboxCaption = document.getElementById("galleryLightboxCaption");
     const galleryLightboxClose = document.getElementById("galleryLightboxClose");
+    const priceList = document.querySelector(".price-list");
     const servicePriceAddition = 2;
     let lastGalleryTrigger = null;
 
@@ -2086,6 +2091,34 @@
         const suffix = element.dataset.priceSuffix || "";
         element.textContent = `${prefix}${formatServicePrice(basePrice + servicePriceAddition)}${suffix}`;
       });
+    };
+
+    const layoutPriceMenu = () => {
+      if (!priceList) return;
+
+      const styles = window.getComputedStyle(priceList);
+      const groups = priceList.querySelectorAll(".menu-group");
+      priceList.classList.remove("is-masonry");
+      groups.forEach((group) => {
+        group.style.gridRowEnd = "";
+      });
+
+      if (styles.gridTemplateColumns.split(" ").length < 2) return;
+
+      priceList.classList.add("is-masonry");
+      const masonryStyles = window.getComputedStyle(priceList);
+      const rowHeight = parseFloat(masonryStyles.gridAutoRows);
+      const rowGap = parseFloat(masonryStyles.rowGap);
+      if (!Number.isFinite(rowHeight) || rowHeight <= 0) return;
+
+      groups.forEach((group) => {
+        const span = Math.ceil((group.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+        group.style.gridRowEnd = `span ${span}`;
+      });
+    };
+
+    const queuePriceMenuLayout = () => {
+      window.requestAnimationFrame(layoutPriceMenu);
     };
 
     const openGalleryLightbox = (link) => {
@@ -2181,6 +2214,8 @@
       if (window.innerWidth > 860) {
         closeMenu();
       }
+
+      queuePriceMenuLayout();
     });
 
     document.addEventListener("keydown", (event) => {
@@ -2192,6 +2227,12 @@
 
     setHeaderState();
     renderServicePrices();
+    queuePriceMenuLayout();
+
+    window.addEventListener("load", queuePriceMenuLayout);
+    if (document.fonts) {
+      document.fonts.ready.then(queuePriceMenuLayout);
+    }
   </script>
 </body>
 </html>
