@@ -1107,6 +1107,12 @@
       color: var(--deep-taupe);
     }
 
+    /* Remove this body class to show online booking buttons again. */
+    body.booking-links-paused .booking-link,
+    body.booking-links-paused .booking {
+      display: none !important;
+    }
+
     .contact {
       background: linear-gradient(180deg, var(--cream), var(--warm-white));
     }
@@ -1590,7 +1596,6 @@
       "description": "Modern nail salon in Chipping Barnet offering professional nail care, premium products and relaxing treatments.",
       "image": "avatar.jpg",
       "telephone": "+44 7927 809419",
-      "url": "https://linhg60n.setmore.com/",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "35A High Street",
@@ -1608,7 +1613,7 @@
     }
   </script>
 </head>
-<body>
+<body class="booking-links-paused">
   <header class="site-header" id="siteHeader">
     <div class="container nav-wrap">
       <a class="brand" href="#home" aria-label="The Nail Lounge home">
@@ -1629,7 +1634,7 @@
 
       <div class="nav-actions">
         <a class="phone-pill" href="tel:+447927809419"><i class="fa-solid fa-phone"></i>+442080548153</a>
-        <a class="btn" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book</a>
+        <a class="btn booking-link" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book</a>
         <button class="hamburger" type="button" id="menuToggle" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -1644,7 +1649,7 @@
         <h1>The Nail Lounge</h1>
         <p class="hero-subtitle">Where Beauty Meets Elegance</p>
         <div class="hero-actions">
-          <a class="btn" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
+          <a class="btn booking-link" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
           <a class="btn secondary" href="#services"><i class="fa-solid fa-spa"></i> View Menu</a>
         </div>
         <div class="hero-meta" aria-label="Salon key information">
@@ -1734,10 +1739,10 @@
 
         <div class="price-guide reveal" aria-label="Signature price guide">
           <div class="price-intro">
-            <span class="eyebrow">Booking Menu</span>
-            <h3>Prices from our online booking menu</h3>
-            <p class="menu-note">Tap Book Appointment to choose your exact treatment, time and technician through Setmore.</p>
-            <a class="btn" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Menu</a>
+            <span class="eyebrow">Service Menu</span>
+            <h3>Prices from our treatment menu</h3>
+            <p class="menu-note">Please contact the salon to choose your exact treatment, time and technician.</p>
+            <a class="btn booking-link" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Menu</a>
           </div>
           <div class="price-list">
             <div class="menu-group">
@@ -1913,7 +1918,7 @@
         <div class="section-heading reveal">
           <span class="eyebrow">Opening Hours</span>
           <h2>Visit us on Chipping Barnet High Street.</h2>
-          <p>Appointments are available Monday to Saturday. Online booking is now available through Setmore.</p>
+          <p>Appointments are available Monday to Saturday. Please call or message us to arrange a visit.</p>
         </div>
 
         <div class="hours-card reveal">
@@ -1934,7 +1939,7 @@
         <span class="eyebrow">Appointments</span>
         <h2>Ready for your next set?</h2>
         <p>Book your manicure, pedicure, BIAB, acrylic extensions or luxury treatment with The Nail Lounge.</p>
-        <a class="btn" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
+        <a class="btn booking-link" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
       </div>
     </section>
 
