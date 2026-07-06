@@ -1749,12 +1749,12 @@
               <h4><i class="fa-solid fa-hand-sparkles"></i> Manicure</h4>
               <div class="price-row"><span>Manicure Gel Polish</span><strong data-base-price="30"></strong></div>
               <div class="price-row"><span>Luxury Manicure Normal Polish</span><strong data-base-price="30"></strong></div>
-              <div class="price-row"><span>Luxury Manicure Gel Polish</span><strong data-base-price="40"></strong></div>
+              <div class="price-row"><span>Luxury Manicure Gel Polish</span><strong data-price-label="Free"></strong></div>
               <div class="price-row"><span>Manicure Normal Polish</span><strong data-base-price="20"></strong></div>
-              <div class="price-row"><span>Take Off Gel Polish + Manicure Normal Polish</span><strong data-base-price="25"></strong></div>
-              <div class="price-row"><span>Take Off Gel Polish + Manicure Gel Polish</span><strong data-base-price="35"></strong></div>
-              <div class="price-row"><span>Take Off Gel Polish + Luxury Manicure Normal Polish</span><strong data-base-price="35"></strong></div>
-              <div class="price-row"><span>Take Off Gel Polish + Luxury Manicure Gel Polish</span><strong data-base-price="45"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish And Manicure Normal Polish</span><strong data-base-price="25"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish And Manicure Gel Polish</span><strong data-base-price="35"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish And Luxury Manicure Normal Polish</span><strong data-base-price="35"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish And Luxury Manicure Gel Polish</span><strong data-base-price="45"></strong></div>
             </div>
 
             <div class="menu-group">
@@ -1763,10 +1763,10 @@
               <div class="price-row"><span>Pedicure Gel Polish</span><strong data-base-price="38"></strong></div>
               <div class="price-row"><span>Luxury Pedicure Normal Polish</span><strong data-base-price="43"></strong></div>
               <div class="price-row"><span>Luxury Pedicure Gel Polish</span><strong data-base-price="48"></strong></div>
-              <div class="price-row"><span>Take Off Gel Polish + Pedicure Normal Polish</span><strong data-base-price="38"></strong></div>
-              <div class="price-row"><span>Take Off Gel Polish + Pedicure Gel Polish</span><strong data-base-price="43"></strong></div>
-              <div class="price-row"><span>Take Off Gel Polish + Luxury Pedicure Normal Polish</span><strong data-base-price="48"></strong></div>
-              <div class="price-row"><span>Take Off Gel Polish + Luxury Pedicure Gel Polish</span><strong data-base-price="53"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish And Pedicure Normal Polish</span><strong data-base-price="38"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish And Pedicure Gel Polish</span><strong data-base-price="43"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish And Luxury Pedicure Normal Polish</span><strong data-base-price="48"></strong></div>
+              <div class="price-row"><span>Take Off Gel Polish And Luxury Pedicure Gel Polish</span><strong data-base-price="53"></strong></div>
             </div>
 
             <div class="menu-group">
@@ -1818,11 +1818,11 @@
 
             <div class="menu-group">
               <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Add On</h4>
-              <div class="price-row"><span>French / Tip</span><strong data-base-price="5" data-price-prefix="from "></strong></div>
-              <div class="price-row"><span>Chrome / Cat Eye</span><strong data-base-price="8"></strong></div>
+              <div class="price-row"><span>French / Tip</span><strong data-base-price="5"></strong></div>
+              <div class="price-row"><span>Chrome/ Cat Eye</span><strong data-base-price="8"></strong></div>
               <div class="price-row"><span>Nail Repair</span><strong data-base-price="4"></strong></div>
-              <div class="price-row"><span>Nail Design</span><strong data-base-price="5" data-price-prefix="from "></strong></div>
-              <div class="price-row"><span>Extra Length</span><strong data-base-price="5" data-price-prefix="from "></strong></div>
+              <div class="price-row"><span>Nail design</span><strong data-base-price="5"></strong></div>
+              <div class="price-row"><span>Extra Length</span><strong data-base-price="5"></strong></div>
             </div>
           </div>
         </div>
@@ -2088,6 +2088,10 @@
     };
 
     const renderServicePrices = () => {
+      document.querySelectorAll("[data-price-label]").forEach((element) => {
+        element.textContent = element.dataset.priceLabel;
+      });
+
       document.querySelectorAll("[data-base-price]").forEach((element) => {
         const basePrice = Number(element.dataset.basePrice);
         if (!Number.isFinite(basePrice)) return;
