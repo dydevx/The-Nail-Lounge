@@ -624,6 +624,14 @@
       width: 100%;
     }
 
+    .menu-filters { display: grid; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); gap: 9px; }
+    .menu-filters-label { margin-bottom: 3px; color: var(--taupe); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .menu-filter { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,253,249,.72); color: var(--deep-taupe); cursor: pointer; font-weight: 600; text-align: left; transition: .2s ease; }
+    .menu-filter span { color: var(--taupe); font-size: .78rem; font-weight: 500; }
+    .menu-filter:hover, .menu-filter:focus-visible { border-color: rgba(199,163,92,.55); transform: translateY(-1px); }
+    .menu-filter.active { border-color: var(--deep-taupe); background: var(--deep-taupe); color: #fff; }
+    .menu-filter.active span { color: rgba(255,255,255,.7); }
+
     .price-list {
       display: grid;
       align-items: start;
@@ -1105,6 +1113,144 @@
     .booking .btn:focus-visible {
       background: var(--warm-white);
       color: var(--deep-taupe);
+    }
+
+    .menu-group[hidden] { display: none; }
+    .menu-group[data-category="beauty"] h4 i { background: #f3e8e1; color: #9a684f; }
+
+    /* Treatment catalogue layout */
+    .price-guide {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .price-intro {
+      display: grid;
+      align-items: end;
+      padding: 30px 34px;
+      position: static;
+      gap: 8px 28px;
+      grid-template-columns: minmax(220px, .8fr) minmax(420px, 1.5fr) auto;
+    }
+
+    .price-intro > .eyebrow {
+      grid-column: 1;
+    }
+
+    .price-intro > h3 {
+      grid-column: 1;
+      font-size: clamp(2rem, 3vw, 2.75rem);
+    }
+
+    .price-intro > .menu-note {
+      align-self: start;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      margin: 0;
+      max-width: 42ch;
+    }
+
+    .price-intro > .menu-filters {
+      display: flex;
+      align-items: center;
+      grid-column: 1 / span 2;
+      margin-top: 14px;
+      padding-top: 20px;
+      gap: 10px;
+    }
+
+    .menu-filters-label {
+      margin: 0 8px 0 0;
+      white-space: nowrap;
+    }
+
+    .menu-filter {
+      justify-content: center;
+      padding-inline: 18px;
+      gap: 9px;
+      white-space: nowrap;
+    }
+
+    .price-intro > .btn {
+      align-self: center;
+      grid-column: 3;
+      grid-row: 1 / span 3;
+      margin: 0;
+      width: auto;
+    }
+
+    .price-list {
+      display: block;
+      column-count: 2;
+      column-gap: 20px;
+    }
+
+    .menu-group {
+      display: inline-grid;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 24px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    @media (max-width: 980px) {
+      .price-intro {
+        grid-template-columns: 1fr auto;
+      }
+
+      .price-intro > .eyebrow,
+      .price-intro > h3,
+      .price-intro > .menu-note,
+      .price-intro > .menu-filters {
+        grid-column: 1;
+      }
+
+      .price-intro > .menu-note {
+        grid-row: auto;
+      }
+
+      .price-intro > .btn {
+        grid-column: 2;
+        grid-row: 1 / span 4;
+      }
+
+      .price-list {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .price-intro {
+        display: block;
+        padding: 26px 20px;
+      }
+
+      .price-intro > .menu-note {
+        margin-top: 12px;
+      }
+
+      .price-intro > .menu-filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .menu-filters-label {
+        grid-column: 1 / -1;
+      }
+
+      .menu-filter:first-of-type {
+        grid-column: 1 / -1;
+      }
+
+      .price-intro > .btn {
+        margin-top: 18px;
+        width: 100%;
+      }
+
+      .price-list {
+        column-count: 1;
+      }
     }
 
     /* Remove this body class to show online booking buttons again. */
@@ -1634,7 +1780,7 @@
 
       <div class="nav-actions">
         <a class="phone-pill" href="tel:+447927809419"><i class="fa-solid fa-phone"></i>+442080548153</a>
-        <a class="btn booking-link" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book</a>
+        <a class="btn booking-link" href="https://the-nail-lounge-2.book.app/book-now" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book</a>
         <button class="hamburger" type="button" id="menuToggle" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -1649,7 +1795,7 @@
         <h1>The Nail Lounge</h1>
         <p class="hero-subtitle">Where Beauty Meets Elegance</p>
         <div class="hero-actions">
-          <a class="btn booking-link" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
+          <a class="btn booking-link" href="https://the-nail-lounge-2.book.app/book-now" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
           <a class="btn secondary" href="#services"><i class="fa-solid fa-spa"></i> View Menu</a>
         </div>
         <div class="hero-meta" aria-label="Salon key information">
@@ -1677,10 +1823,10 @@
 
         <div class="about-media reveal">
           <div class="about-photo">
-            <img src="c%E1%BB%ADa%20h%C3%A0ng.jpg" alt="The Nail Lounge salon interior" loading="lazy">
+            <img src="1.jpg" alt="The Nail Lounge salon interior" loading="lazy">
           </div>
           <div class="about-badge">
-            <img src="avatar.jpg" alt="The Nail Lounge logo" loading="lazy">
+            <img src="2.jpg" alt="The Nail Lounge interior detail" loading="lazy">
             <strong>Elegant nails, beautifully cared for.</strong>
           </div>
         </div>
@@ -1740,12 +1886,18 @@
         <div class="price-guide reveal" aria-label="Signature price guide">
           <div class="price-intro">
             <span class="eyebrow">Service Menu</span>
-            <h3>Prices from our treatment menu</h3>
-            <p class="menu-note">Please contact the salon to choose your exact treatment, time and technician.</p>
-            <a class="btn booking-link" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Menu</a>
+            <h3>Find your treatment</h3>
+            <p class="menu-note">Choose a category to quickly browse treatments and prices.</p>
+            <div class="menu-filters" aria-label="Filter service menu">
+              <span class="menu-filters-label">Browse by category</span>
+              <button class="menu-filter active" type="button" data-menu-filter="all" aria-pressed="true">All services <span>12 groups</span></button>
+              <button class="menu-filter" type="button" data-menu-filter="nails" aria-pressed="false">Nail services <span>7 groups</span></button>
+              <button class="menu-filter" type="button" data-menu-filter="beauty" aria-pressed="false">Beauty services <span>5 groups</span></button>
+            </div>
+            <a class="btn booking-link" href="https://the-nail-lounge-2.book.app/book-now" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Menu</a>
           </div>
           <div class="price-list">
-            <div class="menu-group">
+            <div class="menu-group" data-category="nails">
               <h4><i class="fa-solid fa-hand-sparkles"></i> Manicure</h4>
               <div class="price-row"><span>Manicure Gel Polish</span><strong data-base-price="30"></strong></div>
               <div class="price-row"><span>Luxury Manicure Normal Polish</span><strong data-base-price="30"></strong></div>
@@ -1757,7 +1909,7 @@
               <div class="price-row"><span>Take Off Gel Polish And Luxury Manicure Gel Polish</span><strong data-base-price="45"></strong></div>
             </div>
 
-            <div class="menu-group">
+            <div class="menu-group" data-category="nails">
               <h4><i class="fa-solid fa-spa"></i> Pedicure</h4>
               <div class="price-row"><span>Pedicure Normal Polish</span><strong data-base-price="33"></strong></div>
               <div class="price-row"><span>Pedicure Gel Polish</span><strong data-base-price="38"></strong></div>
@@ -1769,7 +1921,7 @@
               <div class="price-row"><span>Take Off Gel Polish And Luxury Pedicure Gel Polish</span><strong data-base-price="53"></strong></div>
             </div>
 
-            <div class="menu-group">
+            <div class="menu-group" data-category="nails">
               <h4><i class="fa-solid fa-seedling"></i> BIAB / Builder Gel</h4>
               <div class="price-row"><span>Full Set On Natural Nail</span><strong data-base-price="40"></strong></div>
               <div class="price-row"><span>Full Set On Extensions</span><strong data-base-price="45"></strong></div>
@@ -1778,7 +1930,7 @@
               <div class="price-row"><span>Take Off Redone On Extensions</span><strong data-base-price="50"></strong></div>
             </div>
 
-            <div class="menu-group">
+            <div class="menu-group" data-category="nails">
               <h4><i class="fa-solid fa-palette"></i> Acrylic / Powder Colour</h4>
               <div class="price-row"><span>Acrylic Full Set With Normal Polish</span><strong data-base-price="27"></strong></div>
               <div class="price-row"><span>Acrylic Full Set With Gel Polish</span><strong data-base-price="37"></strong></div>
@@ -1794,7 +1946,7 @@
               <div class="price-row"><span>Infill Ombre Powder / Pink &amp; White</span><strong data-base-price="38"></strong></div>
             </div>
 
-            <div class="menu-group">
+            <div class="menu-group" data-category="nails">
               <h4><i class="fa-solid fa-shoe-prints"></i> Feet</h4>
               <div class="price-row"><span>Full Set Toes With Normal Polish</span><strong data-base-price="38"></strong></div>
               <div class="price-row"><span>Full Set Toes With Gel Polish</span><strong data-base-price="43"></strong></div>
@@ -1807,7 +1959,7 @@
               <div class="price-row"><span>Pedicure Without Colour</span><strong data-base-price="30"></strong></div>
             </div>
 
-            <div class="menu-group">
+            <div class="menu-group" data-category="nails">
               <h4><i class="fa-solid fa-hand"></i> Hand</h4>
               <div class="price-row"><span>Normal Polish</span><strong data-base-price="15"></strong></div>
               <div class="price-row"><span>Gel Polish</span><strong data-base-price="20"></strong></div>
@@ -1816,13 +1968,52 @@
               <div class="price-row"><span>Take Off With Normal Polish</span><strong data-base-price="20"></strong></div>
             </div>
 
-            <div class="menu-group">
+            <div class="menu-group" data-category="nails">
               <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Add On</h4>
               <div class="price-row"><span>French / Tip</span><strong data-base-price="5"></strong></div>
               <div class="price-row"><span>Chrome/ Cat Eye</span><strong data-base-price="8"></strong></div>
               <div class="price-row"><span>Nail Repair</span><strong data-base-price="4"></strong></div>
               <div class="price-row"><span>Nail design</span><strong data-base-price="5"></strong></div>
               <div class="price-row"><span>Extra Length</span><strong data-base-price="5"></strong></div>
+            </div>
+            <div class="menu-group" data-category="beauty">
+              <h4><i class="fa-solid fa-spa"></i> Facial</h4>
+              <div class="price-row"><span>Deep Clean · 30 mins</span><strong data-base-price="35"></strong></div>
+              <div class="price-row"><span>Rehydrating Facial · 60 mins</span><strong data-base-price="50"></strong></div>
+            </div>
+            <div class="menu-group" data-category="beauty">
+              <h4><i class="fa-solid fa-hands"></i> Massage</h4>
+              <div class="price-row"><span>Indian Head Massage · 30 mins</span><strong data-base-price="25"></strong></div>
+              <div class="price-row"><span>Back / Neck / Shoulder · 30 mins</span><strong data-base-price="35"></strong></div>
+            </div>
+            <div class="menu-group" data-category="beauty">
+              <h4><i class="fa-solid fa-eye"></i> Tint</h4>
+              <div class="price-row"><span>Eyebrow Tint</span><strong data-base-price="10"></strong></div>
+              <div class="price-row"><span>Eyelash Tint</span><strong data-base-price="10"></strong></div>
+              <div class="price-row"><span>Eyebrow Shape and Tint</span><strong data-base-price="18"></strong></div>
+            </div>
+            <div class="menu-group" data-category="beauty">
+              <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Threading</h4>
+              <div class="price-row"><span>Eyebrow</span><strong data-base-price="8"></strong></div>
+              <div class="price-row"><span>Upper Lips</span><strong data-base-price="5"></strong></div>
+              <div class="price-row"><span>Chin, Forehead or Side of Face (each)</span><strong data-base-price="5"></strong></div>
+              <div class="price-row"><span>Full Face Threading Package</span><strong data-base-price="25"></strong></div>
+            </div>
+            <div class="menu-group" data-category="beauty">
+              <h4><i class="fa-solid fa-leaf"></i> Waxing / Hot Wax</h4>
+              <div class="price-row"><span>Eyebrow</span><strong data-base-price="10"></strong></div>
+              <div class="price-row"><span>Upper Lips</span><strong data-base-price="6"></strong></div>
+              <div class="price-row"><span>Chin, Forehead or Side of Face (each)</span><strong data-base-price="6"></strong></div>
+              <div class="price-row"><span>Full Face Wax Package</span><strong data-base-price="30"></strong></div>
+              <div class="price-row"><span>Underarm</span><strong data-base-price="10"></strong></div>
+              <div class="price-row"><span>Full Arms</span><strong data-base-price="20"></strong></div>
+              <div class="price-row"><span>Half Arms</span><strong data-base-price="15"></strong></div>
+              <div class="price-row"><span>Full Legs</span><strong data-base-price="25"></strong></div>
+              <div class="price-row"><span>Half Legs</span><strong data-base-price="20"></strong></div>
+              <div class="price-row"><span>Full Body Wax</span><strong data-base-price="90"></strong></div>
+              <div class="price-row"><span>Hollywood / Brazilian</span><strong data-base-price="30"></strong></div>
+              <div class="price-row"><span>Bikini Line</span><strong data-base-price="15"></strong></div>
+              <div class="price-row"><span>Full Legs, Arms, Underarms, Bikini Line Package</span><strong data-base-price="60"></strong></div>
             </div>
           </div>
         </div>
@@ -1837,35 +2028,45 @@
         </div>
 
         <div class="gallery-grid">
-          <a class="gallery-item feature reveal" href="c%E1%BB%ADa%20h%C3%A0ng.jpg" data-gallery data-caption="Salon Interior" aria-label="View salon interior image" style="--focus: center 58%;">
-            <img src="c%E1%BB%ADa%20h%C3%A0ng.jpg" alt="Luxury cream nail salon interior" loading="lazy">
+          <a class="gallery-item feature reveal" href="1.jpg" data-gallery data-caption="Salon Interior" aria-label="View salon interior image" style="--focus: center 58%;">
+            <img src="1.jpg" alt="The Nail Lounge salon interior" loading="lazy">
             <span class="gallery-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
             <span class="gallery-caption"><strong>Salon Interior</strong><small>Warm cream space, clean stations and a relaxed lounge feel.</small></span>
           </a>
-          <a class="gallery-item reveal" href="https://images.pexels.com/photos/17471373/pexels-photo-17471373.jpeg?auto=compress&cs=tinysrgb&w=1200" data-gallery data-caption="Pearl Detail" aria-label="View manicure inspiration" style="--focus: center 38%;">
-            <img src="https://images.pexels.com/photos/17471373/pexels-photo-17471373.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Elegant modern nail art manicure" loading="lazy">
+          <a class="gallery-item reveal" href="2.jpg" data-gallery data-caption="Salon Interior" aria-label="View salon photo 2" style="--focus: center 38%;">
+            <img src="2.jpg" alt="The Nail Lounge salon photo 2" loading="lazy">
             <span class="gallery-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
             <span class="gallery-caption"><strong>Pearl Detail</strong><small>Soft nude colour with a delicate statement accent.</small></span>
           </a>
-          <a class="gallery-item reveal" href="https://images.pexels.com/photos/35103938/pexels-photo-35103938.jpeg?auto=compress&cs=tinysrgb&w=1200" data-gallery data-caption="Nude Polish" aria-label="View nude polish detail" style="--focus: center 42%;">
-            <img src="https://images.pexels.com/photos/35103938/pexels-photo-35103938.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Nude gel polish manicure close up" loading="lazy">
+          <a class="gallery-item reveal" href="3.jpg" data-gallery data-caption="Salon Interior" aria-label="View salon photo 3" style="--focus: center 42%;">
+            <img src="3.jpg" alt="The Nail Lounge salon photo 3" loading="lazy">
             <span class="gallery-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
             <span class="gallery-caption"><strong>Nude Polish</strong><small>Soft colour, glossy shape and a refined everyday finish.</small></span>
           </a>
-          <a class="gallery-item reveal" href="https://images.pexels.com/photos/4677852/pexels-photo-4677852.jpeg?auto=compress&cs=tinysrgb&w=1200" data-gallery data-caption="Fine Detail" aria-label="View manicure detail service" style="--focus: center 48%;">
-            <img src="https://images.pexels.com/photos/4677852/pexels-photo-4677852.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Manicurist working on a detailed nail finish" loading="lazy">
+          <a class="gallery-item reveal" href="4.jpg" data-gallery data-caption="Salon Interior" aria-label="View salon photo 4" style="--focus: center 48%;">
+            <img src="4.jpg" alt="The Nail Lounge salon photo 4" loading="lazy">
             <span class="gallery-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
             <span class="gallery-caption"><strong>Fine Detail</strong><small>Careful shaping and colour work with a warm salon feel.</small></span>
           </a>
-          <a class="gallery-item reveal" href="https://images.pexels.com/photos/704815/pexels-photo-704815.jpeg?auto=compress&cs=tinysrgb&w=1200" data-gallery data-caption="Botanical Green" aria-label="View green nail art" style="--focus: center 50%;">
-            <img src="https://images.pexels.com/photos/704815/pexels-photo-704815.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Green manicure with leaf nail art" loading="lazy">
+          <a class="gallery-item reveal" href="5.jpg" data-gallery data-caption="Salon Interior" aria-label="View salon photo 5" style="--focus: center 50%;">
+            <img src="5.jpg" alt="The Nail Lounge salon photo 5" loading="lazy">
             <span class="gallery-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
             <span class="gallery-caption"><strong>Botanical Green</strong><small>A deeper colour moment with refined nail art detail.</small></span>
           </a>
-          <a class="gallery-item reveal" href="https://images.pexels.com/photos/14396082/pexels-photo-14396082.jpeg?auto=compress&cs=tinysrgb&w=1200" data-gallery data-caption="Soft Pink" aria-label="View pink nail art" style="--focus: center 52%;">
-            <img src="https://images.pexels.com/photos/14396082/pexels-photo-14396082.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Pink manicure with delicate nail art" loading="lazy">
+          <a class="gallery-item reveal" href="6.jpg" data-gallery data-caption="Salon Interior" aria-label="View salon photo 6" style="--focus: center 52%;">
+            <img src="6.jpg" alt="The Nail Lounge salon photo 6" loading="lazy">
             <span class="gallery-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
             <span class="gallery-caption"><strong>Soft Pink</strong><small>Feminine colour, glossy shape and subtle shine.</small></span>
+          </a>
+          <a class="gallery-item reveal" href="7.jpg" data-gallery data-caption="Salon Interior" aria-label="View salon photo 7" style="--focus: center;">
+            <img src="7.jpg" alt="The Nail Lounge salon photo 7" loading="lazy">
+            <span class="gallery-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+            <span class="gallery-caption"><strong>Our Salon</strong><small>A closer look inside The Nail Lounge.</small></span>
+          </a>
+          <a class="gallery-item reveal" href="8.jpg" data-gallery data-caption="Salon Interior" aria-label="View salon photo 8" style="--focus: center;">
+            <img src="8.jpg" alt="The Nail Lounge salon photo 8" loading="lazy">
+            <span class="gallery-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+            <span class="gallery-caption"><strong>Salon Detail</strong><small>Comfort, care and calm in every detail.</small></span>
           </a>
         </div>
       </div>
@@ -1939,7 +2140,7 @@
         <span class="eyebrow">Appointments</span>
         <h2>Ready for your next set?</h2>
         <p>Book your manicure, pedicure, BIAB, acrylic extensions or luxury treatment with The Nail Lounge.</p>
-        <a class="btn booking-link" href="https://linhg60n.setmore.com/" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
+        <a class="btn booking-link" href="https://the-nail-lounge-2.book.app/book-now" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
       </div>
     </section>
 
@@ -2070,6 +2271,7 @@
     const galleryLightboxCaption = document.getElementById("galleryLightboxCaption");
     const galleryLightboxClose = document.getElementById("galleryLightboxClose");
     const priceList = document.querySelector(".price-list");
+    const menuFilters = document.querySelectorAll("[data-menu-filter]");
     const servicePriceAddition = 0;
     let lastGalleryTrigger = null;
 
@@ -2129,6 +2331,24 @@
     const queuePriceMenuLayout = () => {
       window.requestAnimationFrame(layoutPriceMenu);
     };
+
+    menuFilters.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.menuFilter;
+
+        menuFilters.forEach((item) => {
+          const isActive = item === button;
+          item.classList.toggle("active", isActive);
+          item.setAttribute("aria-pressed", String(isActive));
+        });
+
+        priceList.querySelectorAll(".menu-group").forEach((group) => {
+          group.hidden = filter !== "all" && group.dataset.category !== filter;
+        });
+
+        queuePriceMenuLayout();
+      });
+    });
 
     const openGalleryLightbox = (link) => {
       const image = link.querySelector("img");
